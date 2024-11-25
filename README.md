@@ -159,12 +159,5 @@ We welcome contributions to enhance this project. Please:
 - Create a new branch for your feature or bug fix.
 - Submit a pull request with a detailed description of your changes.
 
----
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ---
-
-Let me know if you'd like further refinements or additional sections!
