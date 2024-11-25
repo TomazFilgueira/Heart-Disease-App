@@ -1,9 +1,3 @@
-# Heart-Disease-App
-
-An application to predict heart disease using patient data.
-
----
-
 # Heart Disease Prediction Project
 
 This project focuses on predicting heart disease using machine learning models. It includes data cleaning, exploratory data analysis (EDA), feature importance analysis, model selection, parameter tuning, and deployment via a web service. The solution is designed for effective containerization and deployment.
