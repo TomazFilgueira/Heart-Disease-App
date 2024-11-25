@@ -1,3 +1,5 @@
+![Heart illustration](/images/heart.jpg)
+
 # Heart Disease Prediction Project
 
 This project focuses on predicting heart disease using machine learning models. It includes data cleaning, exploratory data analysis (EDA), feature importance analysis, model selection, parameter tuning, and deployment via a web service. The solution is designed for effective containerization and deployment.
@@ -81,6 +83,11 @@ pipenv install flask scikit-learn==1.5.1 gunicorn
 pipenv shell
 ```
 
+NB: You can also directly use:
+```bash
+pipenv run `add the command to execute`
+```
+
 ---
 
 ## Running the Project
@@ -102,16 +109,19 @@ Send a test request using `predict_test.py`:
 ```bash
 python predict_test.py
 ```
+![Model deployment only with Flask](/images/model_deployment_with_flask.png)
 
 ---
 
 ## Model Deployment
 
-The model is deployed using Flask. Follow these steps:
+The model is deployed using Flask in an environment created with pipenv. Follow these steps:
 1. Serve the app using Flask and test its functionality:
    ```bash
    python predict_test.py
    ```
+![Model deployment only with Flask](/images/model_deployment_with_pipenv.png)
+
 2. Transition to containerized deployment with Docker.
 
 ---
@@ -135,6 +145,7 @@ Send a request to the service using:
 ```bash
 python predict_test.py
 ```
+![Model deployment only with Flask](/images/model_deployment_with_docker.png)
 
 ---
 
