@@ -6,7 +6,7 @@ from flask import Flask, request, jsonify
 
 
 # Model file name
-model_file = f'rf_model:{n_estimators}_trees_depth_{max_depth}_min_samples_leaf_{min_samples_leaf}.bin'
+model_file = f'rf_model:40_trees_depth_10_min_samples_leaf_1.bin'
 
 # Open model file to read it
 with open(model_file, 'rb') as f_in:
