@@ -31,13 +31,13 @@ patient = {'age': 37,
 # One-Hot-Encoding
 X_i = One_Hot_encoder.transform([patient])
 # Make predictions
-y_i_pred = rf.predict(X_i)
+y_i_pred = round(rf.predict_proba(X_i)[0, 1], 3)
 
 # Print customer info and the model's prediction
 print('input data:', patient)
 print('output information:', y_i_pred)
 # Define a treatment if necessary
-if y_i_pred[0]:
+if y_i_pred:
     print('Define a treatment for the patient-test.')
     
 # ---
