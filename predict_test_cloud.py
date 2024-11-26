@@ -4,7 +4,7 @@
 import requests
 
 # host and url address for making predictions
-host = "http://heart-prediction-app-env.eba-gzxmk6m4.us-east-1.elasticbeanstalk.com"
+host = "heart-prediction-app-env.eba-zpm2tfpu.us-east-1.elasticbeanstalk.com"
 url = f'http://{host}/predict'
 # New patient information
 patient = {'age': 17,
