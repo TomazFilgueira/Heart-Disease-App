@@ -48,6 +48,7 @@ heart-disease-prediction/
 ├── Pipfile                        # Dependencies for pipenv
 ├── Pipfile.lock                   # Locked versions of dependencies
 ├── Dockerfile                     # Docker configuration for containerization
+├── LICENSE.txt                    # MIT License of the project
 └── README.md                      # Project description and instructions
 ```
 
