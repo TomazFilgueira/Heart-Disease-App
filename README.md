@@ -12,9 +12,10 @@ This project focuses on predicting heart disease using machine learning models. 
 5. [Running the Project](#running-the-project)
 6. [Model Deployment](#model-deployment)
 7. [Docker Containerization](#docker-containerization)
-8. [Testing the Application](#testing-the-application)
-9. [Contributing](#contributing)
-10. [License](#license)
+8. [AWS Elastic Beanstalk Deployment](#aws-elastic-beanstalk-deployment)
+9. [Testing the Application](#testing-the-application)
+10. [Contributing](#contributing)
+11. [License](#license)
 
 ---
 
@@ -27,6 +28,7 @@ Key features include:
 - Exploratory Data Analysis (EDA) to uncover patterns and relationships.
 - Model training, evaluation, and parameter optimization.
 - Deployment via Flask and containerization using Docker for scalable web service hosting.
+- Cloud deployment using AWS Elastic Beanstalk.
 
 ---
 
@@ -37,11 +39,12 @@ heart-disease-prediction/
 │
 ├── data/                          # Contains the dataset
 ├── images/                        # Illustrations and deployment screenshots
-├── midterm_project.ipynb          # Jupyter Notebook with data preparation and analysis
+├── midterm_project.ipynb          # Jupyter Notebook with data preparation, analysis and model planning
 ├── train.py                       # Script for training and saving the model
 ├── predict.py                     # Web service for serving the model
 ├── no_app_predict_test.py         # Test script for direct model testing
 ├── predict_test.py                # Script for testing the web service
+├── predict_test_cloud.py          # Script for testing the app deployed on AWS Elastic Beanstalk
 ├── Pipfile                        # Dependencies for pipenv
 ├── Pipfile.lock                   # Locked versions of dependencies
 ├── Dockerfile                     # Docker configuration for containerization
@@ -57,7 +60,52 @@ Cardiovascular diseases are a major global health challenge. This project aims t
 - Provide a tool for healthcare professionals to make informed decisions.
 - Deliver an easily deployable service for real-world use cases.
 
-The dataset contains anonymized patient records with various features, such as age, cholesterol levels, and blood pressure, which are used to predict the risk of heart disease.
+### Heart Disease Prediction Dataset
+[This dataset](https://www.kaggle.com/datasets/mfarhaannazirkhan/heart-dataset/data) is a combination of five publicly available heart disease datasets, with a total of $2181$  records:
+
+<ul>
+    <li>Heart Attack Analysis & Prediction Dataset: 304 reccords from Rahman, 2021</li>
+    <li>Heart Disease Dataset: 1,026 records from Lapp, 2019</li>
+    <li>Heart Attack Prediction (Dataset 3): 295 records from Damarla, 2020</li>
+    <li>Heart Attack Prediction (Dataset 4): 271 records from Anand, 2018</li>
+    <li>Heart CSV Dataset: 290 records from Nandal, 2022</li>
+</ul>
+<p>Merging these datasets provides a more robust foundation for training machine learning models aimed at early detection and prevention of heart disease. The resulting dataset
+The dataset contains anonymized patient records with various features, such as age, cholesterol levels, and blood pressure, which are used are crucial for predicting heart attack and stroke risks, covering both medical and demographic factors.</p>
+
+![Heart features illustration](/images/Heart_Failure_.webp)
+
+### Features Description:
+<ul>
+    <li><strong>age</strong>: age of the patient 
+        [years: Numeric]</li>
+    <li><strong>sex</strong>: gender of the patient 
+        [1: Male, 0: Female]</li>
+    <li><strong>cp</strong>: chest pain type 
+        [0: Typical Angina, 1: Atypical Angina, 2: Non-Anginal Pain, 3: Asymptomatic]</li>
+    <li><strong>trestbps</strong>: resting blood pressure 
+        [mm Hg: Numeric]</li>
+    <li><strong>chol</strong>: serum cholesterol level 
+        [mg/dl: Numeric]</li>
+    <li><strong>fbs</strong>: fasting blood sugar 
+        [1: if fasting blood sugar > 120 mg/dl, 0: otherwise]</li>
+    <li><strong>restecg</strong>: resting electrocardiographic results 
+        [0: Normal, 1: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV), 2: showing probable or definite left ventricular hypertrophy by Estes' criteria]</li>
+    <li><strong>thalach</strong>: maximum heart rate achieved 
+        [Numeric value between 60 and 202]</li>
+    <li><strong>exang</strong>: exercise-induced angina 
+        [1: Yes, 0: No]</li>
+    <li><strong>oldpeak</strong>: ST depression induced by exercise relative to rest 
+        [Numeric value measured in depression]</li>
+    <li><strong>slope</strong>: slope of the peak exercise ST segment 
+        [0: Upsloping, 1: Flat, 2: Downsloping]</li>
+    <li><strong>ca</strong>: number (0-3) of major vessels (arteries, veins, and capillaries) colored by fluoroscopy 
+        [0, 1, 2, 3] </li>
+    <li><strong>thal</strong>: Thalassemia types 
+        [1: Normal, 2: Fixed defect, 3: Reversible defect]</li>
+    <li><strong>target</strong>: outcome variable for heart attack risk 
+        [1: disease or more chance of heart attack, 0: normal or less chance of heart attack]</li>
+</ul>
 
 ---
 
@@ -65,20 +113,20 @@ The dataset contains anonymized patient records with various features, such as a
 
 This project uses **Python 3.11** and requires an Ubuntu distribution with **WSL 2.0**. 
 
-### 1. Clone the Repository
+### a. Clone the Repository
 ```bash
 git clone https://github.com/your-username/heart-disease-prediction.git
 cd heart-disease-prediction
 ```
 
-### 2. Install Dependencies
+### b. Install Dependencies
 Use `pipenv` to manage dependencies:
 ```bash
 pip install pipenv
 pipenv install flask scikit-learn==1.5.1 gunicorn
 ```
 
-### 3. Create and Activate the Environment
+### c. Create and Activate the Environment
 ```bash
 pipenv shell
 ```
@@ -92,19 +140,19 @@ pipenv run `add the command to execute`
 
 ## Running the Project
 
-### 1. Training the Model
+### i. Training the Model
 Train the model and save it as a binary file:
 ```bash
 python train.py
 ```
 
-### 2. Running the Web Service
+### ii. Running the Web Service
 Start the Flask application:
 ```bash
 gunicorn --bind 0.0.0.0:9696 predict:app
 ```
 
-### 3. Testing the Web Service
+### iii. Testing the Web Service
 Send a test request using `predict_test.py`:
 ```bash
 python predict_test.py
@@ -115,51 +163,105 @@ python predict_test.py
 
 ## Model Deployment
 
-The model is deployed using Flask in an environment created with pipenv. Follow these steps:
-1. Serve the app using Flask and test its functionality:
+The model is deployed using Flask in an environment created with pipenv.
+
+Serve the app using Flask and test its functionality:
    ```bash
    python predict_test.py
    ```
-![Model deployment only with Flask](/images/model_deployment_with_pipenv.png)
+![Model deployment only with pipenv and flask](/images/model_deployment_with_pipenv.png)
 
-2. Transition to containerized deployment with Docker.
+You can now transition to containerized deployment with Docker.
 
 ---
 
 ## Docker Containerization
 
-### 1. Build the Docker Image
+### a. Build the Docker Image
 Create a Docker image for the project:
 ```bash
 docker build -t heart-prediction-app .
 ```
 
-### 2. Run the Docker Container
+### b. Run the Docker Container
 Run the image and map the port:
 ```bash
 docker run -it --rm -p 9696:9696 heart-prediction-app
 ```
 
-### 3. Test the Application
+### c. Test the Application
 Send a request to the service using:
 ```bash
 python predict_test.py
 ```
-![Model deployment only with Flask](/images/model_deployment_with_docker.png)
+![Model deployment with Docker](/images/model_deployment_with_docker.png)
 
 ---
+## AWS Elastic Beanstalk Deployment
 
+### 1. Install AWS Elastic Beanstalk CLI
+Install the AWS Elastic Beanstalk CLI in your environment:
+```bash
+pipenv install awsebcli --dev
+```
+
+### 2. Initialize the Application
+After activating the environment with `pipenv shell`, initialize the project for Elastic Beanstalk:
+```bash
+eb init -p docker -r us-east-1 heart-prediction-app
+```
+If errors occur, use:
+```bash
+eb init -p "Docker running on 64bit Amazon Linux 2" heart-prediction-app -r us-east-1
+```
+Provide your AWS credentials when prompted. These can be generated from the AWS IAM service.
+
+NB: You can follow [Alexey's tutorial](https://mlbookcamp.com/article/aws) to create an account on AWS.
+
+### 3. Deploy Locally
+Deploy the application locally:
+```bash
+eb local run --port 9696
+```
+![Local model deployment with Elastic Beanstalk](images/model_deployment_with_eb_locally.png)
+Use `python predict_test.py` to send a request to the locally running app for testing.
+![Test local model deployment with Elastic Beanstalk](images/model_deployment_with_eb_locally_test.png)
+
+### 4. Deploy to the Cloud
+Deploy the application to Elastic Beanstalk:
+```bash
+eb create heart-prediction-app-env
+```
+![Model deployment to the Cloud with Elastic Beanstalk](images/model_deployment_with_aws_eb_on_cloud.png)
+After deployment, the app is accessible at the [Elastic Beanstalk URL](http://heart-prediction-app-env.eba-zpm2tfpu.us-east-1.elasticbeanstalk.com/predict).
+
+Test the deployment using:
+```bash
+python predict_test_cloud.py
+```
+
+### 5. Terminate the Service
+To terminate the Elastic Beanstalk environment:
+```bash
+eb terminate heart-prediction-app-env
+```
+---
 ## Testing the Application
 
-You can test the model without the Flask app using:
-```bash
-python no_app_predict_test.py
-```
+You can test the model in the following ways:
 
-Alternatively, send test requests to the Flask web service:
-```bash
-python predict_test.py
-```
+i. **Without Flask**: Directly test the model using:
+   ```bash
+   python no_app_predict_test.py
+   ```
+ii. **Flask Web Service & Docker**: Send requests to the Flask app or the docker image:
+   ```bash
+   python predict_test.py
+   ```
+iii. **Cloud Deployment**: Test the application on AWS:
+   ```bash
+   python predict_test_cloud.py
+   ```
 
 ---
 
@@ -170,5 +272,12 @@ We welcome contributions to enhance this project. Please:
 - Create a new branch for your feature or bug fix.
 - Submit a pull request with a detailed description of your changes.
 
+## License
 
+This project is licensed under the [MIT License](LICENSE).
+
+--- 
+![Heart attack](/images/Heart.jpg)
+
+;) We will miss you...
 ---
