@@ -64,7 +64,7 @@ Heart-Disease-App/
 - 🌍 Provide an easily deployable service for real-world applications.  
 
 ### Heart Disease Prediction Dataset 📊
-[The dataset](https://www.kaggle.com/datasets/mfarhaannazirkhan/heart-dataset/data) combines five publicly available heart disease datasets, with a total of $2181$  records:
+[The dataset](https://www.kaggle.com/datasets/mfarhaannazirkhan/heart-dataset/data) combines five publicly available heart disease datasets, with a total of 2181  records:
 
 <ul>
     <li> 📝 Heart Attack Analysis & Prediction Dataset: 304 reccords from Rahman, 2021</li>
