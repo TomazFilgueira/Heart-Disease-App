@@ -1,41 +1,43 @@
 ![Heart illustration](/images/heart.jpg)
 
-# Heart Disease Prediction Project
+# ❤️ Heart Disease Prediction Project
 
 This project focuses on predicting heart disease using machine learning models. It includes data cleaning, exploratory data analysis (EDA), feature importance analysis, model selection, parameter tuning, and deployment via a web service. The solution is designed for effective containerization and deployment.
 
-## Table of Contents
-1. [Project Overview](#project-overview)
-2. [Directory Structure](#directory-structure)
-3. [Problem Description](#problem-description)
-4. [Installation and Setup](#installation-and-setup)
-5. [Running the Project](#running-the-project)
-6. [Model Deployment](#model-deployment)
-7. [Docker Containerization](#docker-containerization)
-8. [AWS Elastic Beanstalk Deployment](#aws-elastic-beanstalk-deployment)
-9. [Testing the Application](#testing-the-application)
-10. [Contributing](#contributing)
-11. [License](#license)
+---
+
+## 🗂️ Table of Contents
+1. [📌 Project Overview](#-project-overview)
+2. [📁 Directory Structure](#-directory-structure)
+3. [❓ Problem Description](#-problem-description)
+4. [⚙️ Installation and Setup](#-installation-and-setup)
+5. [▶️ Running the Project](#️-running-the-project)
+6. [🚀 Model Deployment](#-model-deployment)
+7. [🐳 Docker Containerization](#-docker-containerization)
+8. [☁️ AWS Elastic Beanstalk Deployment](#️-aws-elastic-beanstalk-deployment)
+9. [🧪 Testing the Application](#-testing-the-application)
+10. [🤝 Contributing](#-contributing)
+11. [📜 License](#-license)
 
 ---
 
-## Project Overview
+## 📌 Project Overview
 
 Heart disease remains one of the leading causes of death globally. This project leverages machine learning techniques to predict the likelihood of heart disease based on patient data. 
 
 Key features include:
-- Data preparation and cleaning.
-- Exploratory Data Analysis (EDA) to uncover patterns and relationships.
-- Model training, evaluation, and parameter optimization.
-- Deployment via Flask and containerization using Docker for scalable web service hosting.
-- Cloud deployment using AWS Elastic Beanstalk.
+- 🧹 Data preparation and cleaning.  
+- 🔍 Exploratory Data Analysis (EDA) to uncover patterns and relationships.  
+- 🧠 Model training, evaluation, and parameter optimization.  
+- 🌐 Deployment via Flask and containerization using Docker for scalable web service hosting. 
+- ☁️ Cloud deployment using AWS Elastic Beanstalk.  
 
 ---
 
-## Directory Structure
+## 📁 Directory Structure
 
-```
-heart-disease-prediction/
+```plaintext
+Heart-Disease-App/
 │
 ├── data/                          # Contains the dataset
 ├── images/                        # Illustrations and deployment screenshots
@@ -48,28 +50,28 @@ heart-disease-prediction/
 ├── Pipfile                        # Dependencies for pipenv
 ├── Pipfile.lock                   # Locked versions of dependencies
 ├── Dockerfile                     # Docker configuration for containerization
-├── LICENSE.txt                    # MIT License of the project
+├── LICENSE.txt                    # Project MIT License
 └── README.md                      # Project description and instructions
 ```
 
 ---
 
-## Problem Description
+## ❓ Problem Description
 
-Cardiovascular diseases are a major global health challenge. This project aims to use machine learning to:
-- Identify individuals at risk of heart disease.
-- Provide a tool for healthcare professionals to make informed decisions.
-- Deliver an easily deployable service for real-world use cases.
+**Cardiovascular diseases** are a major global health challenge. This project aims to use machine learning to:
+- ⚠️ Identify individuals at risk of heart disease.  
+- 🩺 Assist healthcare professionals in making informed decisions.  
+- 🌍 Provide an easily deployable service for real-world applications.  
 
-### Heart Disease Prediction Dataset
-[This dataset](https://www.kaggle.com/datasets/mfarhaannazirkhan/heart-dataset/data) is a combination of five publicly available heart disease datasets, with a total of $2181$  records:
+### Heart Disease Prediction Dataset 📊
+[The dataset](https://www.kaggle.com/datasets/mfarhaannazirkhan/heart-dataset/data) combines five publicly available heart disease datasets, with a total of $2181$  records:
 
 <ul>
-    <li>Heart Attack Analysis & Prediction Dataset: 304 reccords from Rahman, 2021</li>
-    <li>Heart Disease Dataset: 1,026 records from Lapp, 2019</li>
-    <li>Heart Attack Prediction (Dataset 3): 295 records from Damarla, 2020</li>
-    <li>Heart Attack Prediction (Dataset 4): 271 records from Anand, 2018</li>
-    <li>Heart CSV Dataset: 290 records from Nandal, 2022</li>
+    <li> 📝 Heart Attack Analysis & Prediction Dataset: 304 reccords from Rahman, 2021</li>
+    <li> 📝 Heart Disease Dataset: 1,026 records from Lapp, 2019</li>
+    <li> 📝 Heart Attack Prediction (Dataset 3): 295 records from Damarla, 2020</li>
+    <li> 📝 Heart Attack Prediction (Dataset 4): 271 records from Anand, 2018</li>
+    <li> 📝 Heart CSV Dataset: 290 records from Nandal, 2022</li>
 </ul>
 <p>Merging these datasets provides a more robust foundation for training machine learning models aimed at early detection and prevention of heart disease. The resulting dataset
 The dataset contains anonymized patient records with various features, such as age, cholesterol levels, and blood pressure, which are used are crucial for predicting heart attack and stroke risks, covering both medical and demographic factors.</p>
@@ -110,14 +112,14 @@ The dataset contains anonymized patient records with various features, such as a
 
 ---
 
-## Installation and Setup
+## ⚙️ Installation and Setup
 
-This project uses **Python 3.11** and requires an Ubuntu distribution with **WSL 2.0**. 
+**Requirements**: Python 3.11, Ubuntu with WSL 2.0   
 
 ### a. Clone the Repository
 ```bash
-git clone https://github.com/your-username/heart-disease-prediction.git
-cd heart-disease-prediction
+git clone https://github.com/maxim-eyengue/Heart-Disease-App.git
+cd Heart-Disease-App
 ```
 
 ### b. Install Dependencies
@@ -141,19 +143,19 @@ pipenv run `add the command to execute`
 
 ## Running the Project
 
-### i. Training the Model
+### i. 🏋️‍♂️ Training the Model
 Train the model and save it as a binary file:
 ```bash
 python train.py
 ```
 
-### ii. Running the Web Service
+### ii. 🌐 Running the Web Service
 Start the Flask application:
 ```bash
 gunicorn --bind 0.0.0.0:9696 predict:app
 ```
 
-### iii. Testing the Web Service
+### iii. ✅ Testing the Web Service
 Send a test request using `predict_test.py`:
 ```bash
 python predict_test.py
@@ -162,7 +164,7 @@ python predict_test.py
 
 ---
 
-## Model Deployment
+## 🚀 Local Model Deployment
 
 The model is deployed using Flask in an environment created with pipenv.
 
@@ -176,7 +178,7 @@ You can now transition to containerized deployment with Docker.
 
 ---
 
-## Docker Containerization
+## 🐳 Docker Containerization
 
 ### a. Build the Docker Image
 Create a Docker image for the project:
@@ -198,7 +200,8 @@ python predict_test.py
 ![Model deployment with Docker](/images/model_deployment_with_docker.png)
 
 ---
-## AWS Elastic Beanstalk Deployment
+
+## ☁️ AWS Elastic Beanstalk Deployment
 
 ### 1. Install AWS Elastic Beanstalk CLI
 Install the AWS Elastic Beanstalk CLI in your environment:
@@ -246,36 +249,38 @@ To terminate the Elastic Beanstalk environment:
 ```bash
 eb terminate heart-prediction-app-env
 ```
+
 ---
-## Testing the Application
 
-You can test the model in the following ways:
+## 🧪 Testing the Application
 
-i. **Without Flask**: Directly test the model using:
+Note that we tested the model in the following ways:
+
+i. 🔬 **Without Flask**: Directly test the model using:
    ```bash
    python no_app_predict_test.py
    ```
-ii. **Flask Web Service & Docker**: Send requests to the Flask app or the docker image:
+ii. 🌐 **Flask Web Service, Docker & Local EB**: Send requests to the Flask app, or to the docker image, or when running Elastic Beanstalk locally:
    ```bash
    python predict_test.py
    ```
-iii. **Cloud Deployment**: Test the application on AWS:
+iii. ☁️ **Cloud Deployment**: Test the application on AWS:
    ```bash
    python predict_test_cloud.py
    ```
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
 We welcome contributions to enhance this project. Please:
 - Fork the repository.
 - Create a new branch for your feature or bug fix.
 - Submit a pull request with a detailed description of your changes.
 
-## License
+## 📜 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE.txt).
 
 --- 
 ![Heart attack](/images/Heart.jpg)
