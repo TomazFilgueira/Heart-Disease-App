@@ -9,6 +9,7 @@ gunicorn = "*"
 scikit-learn = "==1.5.1"
 
 [dev-packages]
+awsebcli = "*"
 
 [requires]
 python_version = "3.11"
