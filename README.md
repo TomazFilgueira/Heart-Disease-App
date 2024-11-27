@@ -73,8 +73,7 @@ Heart-Disease-App/
     <li> 📝 Heart Attack Prediction (Dataset 4): 271 records from Anand, 2018</li>
     <li> 📝 Heart CSV Dataset: 290 records from Nandal, 2022</li>
 </ul>
-<p>Merging these datasets provides a more robust foundation for training machine learning models aimed at early detection and prevention of heart disease. The resulting dataset
-The dataset contains anonymized patient records with various features, such as age, cholesterol levels, and blood pressure, which are crucial for predicting heart attack and stroke risks, covering both medical and demographic factors.</p>
+<p>Merging these datasets provides a more robust foundation for training machine learning models aimed at early detection and prevention of heart disease. The [resulting dataset](data/raw_merged_heart_dataset.csv) contains anonymized patient records with various features, such as age, cholesterol levels, and blood pressure, which are crucial for predicting heart attack and stroke risks, covering both medical and demographic factors.</p>
 
 ![Heart features illustration](/images/Heart_Failure_.webp)
 
