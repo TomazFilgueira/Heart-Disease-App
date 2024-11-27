@@ -74,7 +74,7 @@ Heart-Disease-App/
     <li> 📝 Heart CSV Dataset: 290 records from Nandal, 2022</li>
 </ul>
 <p>Merging these datasets provides a more robust foundation for training machine learning models aimed at early detection and prevention of heart disease. The resulting dataset
-The dataset contains anonymized patient records with various features, such as age, cholesterol levels, and blood pressure, which are used are crucial for predicting heart attack and stroke risks, covering both medical and demographic factors.</p>
+The dataset contains anonymized patient records with various features, such as age, cholesterol levels, and blood pressure, which are crucial for predicting heart attack and stroke risks, covering both medical and demographic factors.</p>
 
 ![Heart features illustration](/images/Heart_Failure_.webp)
 
