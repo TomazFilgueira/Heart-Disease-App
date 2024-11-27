@@ -237,9 +237,9 @@ Deploy the application to Elastic Beanstalk:
 eb create heart-prediction-app-env
 ```
 ![Model deployment to the Cloud with Elastic Beanstalk](images/model_deployment_with_aws_eb_on_cloud.png)
-After deployment, the app is accessible at the [Elastic Beanstalk URL](http://heart-prediction-app-env.eba-zpm2tfpu.us-east-1.elasticbeanstalk.com/predict).
+After deployment, the app was accessible at the [Elastic Beanstalk URL](http://heart-prediction-app-env.eba-zpm2tfpu.us-east-1.elasticbeanstalk.com/predict).
 
-Test the deployment using:
+To test the deployment, we used:
 ```bash
 python predict_test_cloud.py
 ```
