@@ -10,7 +10,7 @@ This project focuses on predicting heart disease using machine learning models. 
 1. [📌 Project Overview](#-project-overview)
 2. [📁 Directory Structure](#-directory-structure)
 3. [❓ Problem Description](#-problem-description)
-4. [⚙️ Installation and Setup](#-⚙️-installation-and-setup)
+4. [⚙️ Installation and Setup](#️-installation-and-setup)
 5. [▶️ Running the Project](#-running-the-project)
 6. [🚀 Local Model Deployment](#-local-model-deployment)
 7. [🐳 Docker Containerization](#-docker-containerization)
