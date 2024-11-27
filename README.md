@@ -11,7 +11,7 @@ This project focuses on predicting heart disease using machine learning models. 
 2. [📁 Directory Structure](#-directory-structure)
 3. [❓ Problem Description](#-problem-description)
 4. [⚙️ Installation and Setup](#️-installation-and-setup)
-5. [▶️ Running the Project](#-running-the-project)
+5. [▶️ Running the Project](#️-running-the-project)
 6. [🚀 Local Model Deployment](#-local-model-deployment)
 7. [🐳 Docker Containerization](#-docker-containerization)
 8. [☁️ AWS Elastic Beanstalk Deployment](#️-aws-elastic-beanstalk-deployment)
@@ -141,7 +141,7 @@ pipenv run `add the command to execute`
 
 ---
 
-## Running the Project
+## ▶️ Running the Project
 
 ### i. 🏋️‍♂️ Training the Model
 Train the model and save it as a binary file:
