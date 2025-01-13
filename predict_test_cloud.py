@@ -3,9 +3,10 @@
 # import necessary library
 import requests
 
-# host and url address for making predictions
-host = "heart-prediction-app-env.eba-zpm2tfpu.us-east-1.elasticbeanstalk.com"
-url = f'http://{host}/predict'
+# host address provided by Elastic BeansTalk 
+host = 'heart-prediction-app-env.eba-zpm2tfpu.us-east-1.elasticbeanstalk.com'
+# url address for making predictions
+url = f"http://{host}/predict"
 # New patient information
 patient = {'age': 17,
            'sex': 'male',
