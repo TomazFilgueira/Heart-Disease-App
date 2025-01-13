@@ -234,7 +234,7 @@ Use `python predict_test.py` to send a request to the locally running app for te
 ### 4. Deploy to the Cloud
 Deploy the application to Elastic Beanstalk:
 ```bash
-eb create heart-prediction-app-env
+eb create heart-prediction-app-env --enable-spot
 ```
 ![Model deployment to the Cloud with Elastic Beanstalk](images/model_deployment_with_aws_eb_on_cloud.png)
 After deployment, the app was accessible at the [Elastic Beanstalk URL](http://heart-prediction-app-env.eba-zpm2tfpu.us-east-1.elasticbeanstalk.com/predict).
