@@ -60,21 +60,21 @@ Heart-Disease-App/
 
 **Cardiovascular diseases** are a major global health challenge. This project aims to use machine learning to:
 - ⚠️ Identify individuals at risk of heart disease.  
-- 🩺 Assist healthcare professionals in making informed decisions.  
+- 🩺 Assist healthcare professionals in making more informed decisions.  
 - 🌍 Provide an easily deployable service for real-world applications.  
 
 ### Heart Disease Prediction Dataset 📊
 [The dataset](https://www.kaggle.com/datasets/mfarhaannazirkhan/heart-dataset/data) combines five publicly available heart disease datasets, with a total of 2181  records:
 
 <ul>
-    <li> 📝 Heart Attack Analysis & Prediction Dataset: 304 reccords from Rahman, 2021</li>
+    <li> 📝 Heart Attack Analysis & Prediction Dataset: 304 records from Rahman, 2021</li>
     <li> 📝 Heart Disease Dataset: 1,026 records from Lapp, 2019</li>
     <li> 📝 Heart Attack Prediction (Dataset 3): 295 records from Damarla, 2020</li>
     <li> 📝 Heart Attack Prediction (Dataset 4): 271 records from Anand, 2018</li>
     <li> 📝 Heart CSV Dataset: 290 records from Nandal, 2022</li>
 </ul>
 
-Merging these datasets provides a more robust foundation for training machine learning models aimed at early detection and prevention of heart disease. The [resulting dataset](/data/raw_merged_heart_dataset.csv) contains anonymized patient records with various features, such as age, cholesterol levels, and blood pressure, which are crucial for predicting heart attack and stroke risks, covering both medical and demographic factors.
+Merging these data sets provides a more robust foundation for training machine learning models aimed at early detection and prevention of heart disease. The [resulting dataset](/data/raw_merged_heart_dataset.csv) contains anonymized patient records with various features, such as age, cholesterol levels, and blood pressure, which are crucial for predicting heart attack and stroke risks, covering both medical and demographic factors.
 
 ![Heart features illustration](/images/Heart_Failure_.webp)
 
@@ -228,7 +228,7 @@ Deploy the application locally:
 eb local run --port 9696
 ```
 ![Local model deployment with Elastic Beanstalk](images/model_deployment_with_eb_locally.png)
-Use `python predict_test.py` to send a request to the locally running app for testing.
+Use `python predict_test.py` to send a request for testing the app running locally.
 ![Test local model deployment with Elastic Beanstalk](images/model_deployment_with_eb_locally_test.png)
 
 ### 4. Deploy to the Cloud
