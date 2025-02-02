@@ -6,7 +6,7 @@ import pickle # to manipulate models
 
 ### Load the model
 # Name of the model
-input_file = 'rf_model:40_trees_depth_10_min_samples_leaf_1.bin'
+input_file = 'rf_model_40_trees_depth_10_min_samples_leaf_1.bin'
 
 # Open file to read it
 with open(input_file, 'rb') as f_in:
@@ -35,9 +35,9 @@ y_i_pred = round(rf.predict_proba(X_i)[0, 1], 3)
 
 # Print customer info and the model's prediction
 print('input data:', patient)
-print('output information:', y_i_pred)
+print('Heart disease probability:', y_i_pred)
 # Define a treatment if necessary
-if y_i_pred:
+if y_i_pred >= 0.5:
     print('Define a treatment for the patient-test.')
     
 # ---

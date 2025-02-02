@@ -148,6 +148,11 @@ Train the model and save it as a binary file:
 ```bash
 python train.py
 ```
+You can now test the model using a script:
+```bash
+python no_app_predict_test.py
+```
+![Model test before web service creation](images/model_test_without_deployment.png)
 
 ### ii. 🌐 Running the Web Service
 Start the Flask application:

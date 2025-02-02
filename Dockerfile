@@ -6,7 +6,7 @@ WORKDIR /app
 COPY ["Pipfile", "Pipfile.lock", "./"]
 
 RUN pipenv install --system --deploy
-COPY ["predict.py", "rf_model:40_trees_depth_10_min_samples_leaf_1.bin", "./"]
+COPY ["predict.py", "rf_model_40_trees_depth_10_min_samples_leaf_1.bin", "./"]
 
 EXPOSE 9696
 

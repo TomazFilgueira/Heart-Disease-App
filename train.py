@@ -19,7 +19,7 @@ n_estimators, max_depth, min_samples_leaf = 40, 10, 1
 # Number of splits for Kfold Cross-Validation
 n_splits = 5
 # model file name
-output_file = f'rf_model:{n_estimators}_trees_depth_{max_depth}_min_samples_leaf_{min_samples_leaf}.bin'
+output_file = f'rf_model_{n_estimators}_trees_depth_{max_depth}_min_samples_leaf_{min_samples_leaf}.bin'
 
 
 #### Read the dataframe
