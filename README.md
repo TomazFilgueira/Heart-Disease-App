@@ -41,6 +41,7 @@ Heart-Disease-App/
 │
 ├── data/                          # Contains the dataset
 ├── images/                        # Illustrations and deployment screenshots
+├── .elasticbeanstalk/            # Contains the configuration file for the application deployment to AWS Elastic Beanstalk
 ├── midterm_project.ipynb          # Jupyter Notebook with data preparation, analysis and model planning
 ├── train.py                       # Script for training and saving the model
 ├── predict.py                     # Web service for serving the model
@@ -217,37 +218,43 @@ pipenv install awsebcli --dev
 ### 2. Initialize the Application
 After activating the environment with `pipenv shell`, initialize the project for Elastic Beanstalk:
 ```bash
-eb init -p docker -r us-east-1 heart-prediction-app
-```
-If errors occur, use:
-```bash
-eb init -p "Docker running on 64bit Amazon Linux 2" heart-prediction-app -r us-east-1
+eb init -p "Docker running on 64bit Amazon Linux 2" heart-tracking-app -r us-east-1
 ```
 Provide your AWS credentials when prompted. These can be generated from the AWS IAM service.
 
 NB: You can follow [Alexey's tutorial](https://mlbookcamp.com/article/aws) to create an account on AWS.
 
 ### 3. Deploy Locally
-Deploy the application locally:
+Run the application locally for testing:
 ```bash
 eb local run --port 9696
 ```
-![Local model deployment with Elastic Beanstalk](images/model_deployment_with_eb_locally.png)
-Use `python predict_test.py` to send a request for testing the app running locally.
-![Test local model deployment with Elastic Beanstalk](images/model_deployment_with_eb_locally_test.png)
+![Local model deployment with Elastic Beanstalk](images/deploy_eb_local.png)
+
+After deploying the model locally with Elastic Beanstalk, you can test the service by sending a request:
+```bash
+python predict_test.py
+```
+![Local model deployment test with Elastic Beanstalk](images/test_eb_local.png)
+![](images/model_deployment_with_eb_locally_test.png)
 
 ### 4. Deploy to the Cloud
 Deploy the application to Elastic Beanstalk:
 ```bash
-eb create heart-prediction-app-env --enable-spot
+eb create heart-tracking-app-env --enable-spot
 ```
-![Model deployment to the Cloud with Elastic Beanstalk](images/model_deployment_with_aws_eb_on_cloud.png)
-After deployment, the app was accessible at the [Elastic Beanstalk URL](http://heart-prediction-app-env.eba-zpm2tfpu.us-east-1.elasticbeanstalk.com/predict).
+![Model deployment to the Cloud with Elastic Beanstalk](images/deploy_eb_cloud.png)
+The application has been deployed to the cloud with an [Elastic Beanstalk host](heart-tracking-app-env.eba-qzigkeuz.us-east-1.elasticbeanstalk.com).
 
-To test the deployment, we used:
+After deployment, it was accessible at the [service URL address](http://heart-tracking-app-env.eba-qzigkeuz.us-east-1.elasticbeanstalk.com/predict).
+
+To test the deployment, we sent some requests using:
 ```bash
 python predict_test_cloud.py
 ```
+![EB Cloud test](images/test_eb_cloud.png)
+Here are the deployment metrics before terminating the application:
+![EB Cloud Metrics](images/test_eb_cloud_metrics.png)
 
 ### 5. Terminate the Service
 To terminate the Elastic Beanstalk environment:
@@ -259,7 +266,7 @@ eb terminate heart-prediction-app-env
 
 ## 🧪 Testing the Application
 
-Note that we tested the model in the following ways:
+It is important to note that we used different test scripts to test our application, during all the deployment process.
 
 i. 🔬 **Without Flask**: Directly test the model using:
    ```bash
@@ -269,7 +276,7 @@ ii. 🌐 **Flask Web Service, Docker & Local EB**: Send requests to the Flask ap
    ```bash
    python predict_test.py
    ```
-iii. ☁️ **Cloud Deployment**: Test the application on AWS:
+iii. ☁️ **Cloud Deployment**: Test the application on the cloud with AWS Elastic Beanstalk:
    ```bash
    python predict_test_cloud.py
    ```
