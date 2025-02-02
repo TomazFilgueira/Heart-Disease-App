@@ -4,7 +4,7 @@
 import requests
 
 # host address provided by Elastic BeansTalk 
-host = 'heart-prediction-app-env.eba-zpm2tfpu.us-east-1.elasticbeanstalk.com'
+host = 'heart-tracking-app-env.eba-qzigkeuz.us-east-1.elasticbeanstalk.com'
 # url address for making predictions
 url = f"http://{host}/predict"
 # New patient information
