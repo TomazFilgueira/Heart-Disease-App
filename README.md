@@ -23,7 +23,7 @@ This project focuses on predicting heart disease using machine learning models. 
 
 ## 📌 Project Overview
 
-Heart disease remains one of the leading causes of death globally. This project leverages machine learning techniques to predict the likelihood of heart disease based on patient data. 
+Heart disease remains one of the leading causes of death globally. This project uses machine learning techniques to predict the likelihood of heart disease based on patient data. 
 
 Key features include:
 - 🧹 Data preparation and cleaning.  
