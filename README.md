@@ -41,6 +41,7 @@ Heart-Disease-App/
 │
 ├── data/                          # Contains the dataset
 ├── images/                        # Illustrations and deployment screenshots
+├── slides/                        # Project Presentation Powerpoint and PDF files
 ├── .elasticbeanstalk/             # Contains the configuration file for the application deployment to AWS Elastic Beanstalk
 ├── midterm_project.ipynb          # Jupyter Notebook with data preparation, analysis and model planning
 ├── train.py                       # Script for training and saving the model
